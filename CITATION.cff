@@ -1,0 +1,31 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: 'Práctica 4:Modelado y control de sistema endocrino'
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: 'Jesus Geovanny '
+    family-names: Bautista Paz
+    email: l23212181@tijuana.tecnm.mx
+    affiliation: TecNM / IT Tijuana
+repository-code: 'https://github.com/l23212181-creator/MSFP4'
+keywords:
+  - sistema endócrino
+  - modelado fisiológico
+  - analogía eléctrica
+  - circuito RLC
+  - función de transferencia
+  - estabilidad
+  - error en estado estacionario
+  - ' controlador PID'
+  - MATLAB
+  - Simulink
+  - Python
+  - osciloscopio
+license: BSD-2-Clause
+version: '1.0'
+date-released: '2026-11-17'
