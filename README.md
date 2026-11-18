@@ -14,7 +14,7 @@ La condición de control utiliza $R_1=1\,\mathrm{k}\Omega$, $L=100\,\mathrm{mH}$
 **Programa:** Ingeniería Biomédica  
 **Estudiante:** Bautista Paz Jesus Geovanny · 23212181 · [l23212181@tectijuana.edu.mx](mailto:l23212181@tectijuana.edu.mx)
 
-**Repositorio de la asignatura:** [https://github.com/DrPaulValle/MSF-IBF1020](https://github.com/DrPaulValle/MSF-IBF1020)  
+
 **Sede:** Blvd. Alberto Limón Padilla s/n, Tijuana, C. P. 22454, B. C., México.
 
 ---
