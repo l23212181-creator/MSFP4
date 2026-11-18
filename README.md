@@ -111,7 +111,7 @@ La salida $V_s(t)$ se mide en el nodo posterior a $R_1$, común al capacitor y a
 
 El diagrama relaciona el estímulo fisiológico, la glándula endócrina, el transporte hormonal, el almacenamiento y la respuesta del órgano diana con los elementos del circuito equivalente. También presenta la comparación entre la condición de control y la condición alterada.
 
-![Diagrama BioRender del sistema endócrino](imagenes/Sistema_endocrino_BioRender.png)
+![Diagrama BioRender del sistema endócrino](Sistema%20endocrino.png)
 
 ### Parámetros utilizados en las simulaciones
 
@@ -282,7 +282,7 @@ plotsignals(x.control,x.CE,x.FT,x.PID,x.Ve,'Caso')
 
 La gráfica muestra la entrada, la respuesta de la condición control, la respuesta del caso y la respuesta con tratamiento PID. La condición control se mantiene próxima a $0.99\,\mathrm{V}$, mientras que el caso alcanza aproximadamente $0.5\,\mathrm{V}$.
 
-![Respuesta de control, caso y tratamiento PID en MATLAB](imagenes/Control_Caso_Matlab.jpg)
+![Respuesta de control, caso y tratamiento PID en MATLAB](Control_Caso_Matlab4.jpg)
 
 El documento exportado desde MATLAB se incluye en [Bautista23212181_4.pdf](Bautista23212181_4.pdf).
 
@@ -312,7 +312,7 @@ La captura de PID Tuner muestra los parámetros de la configuración PIDF:
 | $D$ | $-0.0459$ |
 | $N$ | $6.016$ |
 
-![Sintonización del controlador PID](imagenes/PID_Tuner.jpg)
+![Sintonización del controlador PID](PID%20controller.jpg)
 
 ### 3. Implementación del controlador en Python
 
@@ -384,7 +384,7 @@ El programa calcula la respuesta de cada planta ante el escalón unitario y la r
 
 La evidencia del laboratorio corresponde a una captura de las señales observadas en el osciloscopio OWON. La pantalla muestra escalas verticales de $500\,\mathrm{mV/div}$ y una base de tiempo de $1.0\,\mathrm{s/div}$. Los indicadores visibles registran valores pico a pico de $1.100\,\mathrm{V}$ en el canal 1 y $1.000\,\mathrm{V}$ en el canal 2.
 
-![Captura de las señales medidas en el osciloscopio](imagenes/Osciloscopio.jpg)
+![Captura de las señales medidas en el osciloscopio](Se%C3%B1al_Lab.jpeg)
 
 La captura permite documentar las señales medidas durante la práctica y complementar la comparación con las respuestas obtenidas mediante simulación. Los valores se reportan tal como aparecen en la pantalla del instrumento, sin asignar una correspondencia fisiológica adicional a cada canal.
 
@@ -537,10 +537,10 @@ pip install numpy control matplotlib
 | Exportación del cuaderno | `Bautista23212181_4.pdf` |
 | Código Python | `Bautista23212181_4.py` |
 | Gráfica de Python | `Control_caso_python4.pdf` |
-| Gráfica MATLAB | `imagenes/Control_Caso_Matlab.jpg` |
-| Sintonización PID | `imagenes/PID_Tuner.jpg` |
-| Evidencia de osciloscopio | `imagenes/Osciloscopio.jpg` |
-| Diagrama biológico | `imagenes/Sistema_endocrino_BioRender.png` |
+| Gráfica MATLAB | `<Control_Caso_Matlab4.jpg>` |
+| Sintonización PID | `<PID controller.jpg>` |
+| Evidencia de osciloscopio | `<Señal_Lab.jpeg>` |
+| Diagrama biológico | `<Sistema endocrino.png>` |
 
 ### Criterios de presentación académica
 
