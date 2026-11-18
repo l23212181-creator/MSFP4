@@ -150,7 +150,7 @@ $$
 V_s(t)=L\frac{dF_s(t)}{dt}+R_2F_s(t)
 $$
 
-El desarrollo manuscrito completo se incluye en [Análisis matemático de la Práctica 4](Analisis_matematico_4.pdf).
+El desarrollo manuscrito completo se incluye en Análisis matemático de la Práctica 4.
 
 ### 2. Función de transferencia
 
@@ -259,7 +259,7 @@ Se utiliza la misma entrada para comparar las respuestas de las condiciones cont
 <a id="matlab"></a>
 ## Implementación en MATLAB y Simulink
 
-La implementación se encuentra en el modelo [`sistemap5.slx`](sistemap5.slx) y en el cuaderno [`Bautista23212181_4.mlx`](Bautista23212181_4.mlx). La simulación se configura para un tiempo de diez segundos, con el solucionador `ode15s` y un paso máximo de `1e-3` segundos.
+La implementación se encuentra en el modelo `sistemap5.slx` y en el cuaderno `Bautista23212181_4.mlx`. La simulación se configura para un tiempo de diez segundos, con el solucionador `ode15s` y un paso máximo de `1e-3` segundos.
 
 ### Configuración de la simulación
 
@@ -284,7 +284,7 @@ La gráfica muestra la entrada, la respuesta de la condición control, la respue
 
 ![Respuesta de control, caso y tratamiento PID en MATLAB](Control_Caso_Matlab4.jpg)
 
-El documento exportado desde MATLAB se incluye en [Bautista23212181_4.pdf](Bautista23212181_4.pdf).
+El documento exportado desde MATLAB se incluye en Bautista23212181_4.pdf.
 
 [Volver al contenido](#contenido)
 
@@ -335,7 +335,7 @@ A partir de estas ganancias y de los componentes $C_r$, $R_e$, $R_r$ y $C_e$, se
 <a id="python"></a>
 ## Reproducción en Python
 
-El archivo [`Bautista23212181_4.py`](Bautista23212181_4.py) reproduce las funciones de transferencia de control y caso, construye el controlador PID y calcula las respuestas temporales mediante la biblioteca `control`.
+El archivo `Bautista23212181_4.py` reproduce las funciones de transferencia de control y caso, construye el controlador PID y calcula las respuestas temporales mediante la biblioteca `control`.
 
 ### Bibliotecas utilizadas
 
@@ -373,7 +373,7 @@ sysCaso = sis(1000E-6, 1E3, "Caso")
 
 ### Respuestas del sistema
 
-El programa calcula la respuesta de cada planta ante el escalón unitario y la respuesta del sistema controlado. La gráfica generada se conserva en [Control_caso_python4.pdf](Control_caso_python4.pdf).
+El programa calcula la respuesta de cada planta ante el escalón unitario y la respuesta del sistema controlado. La gráfica generada se conserva en Control_caso_python4.pdf.
 
 [Volver al contenido](#contenido)
 
