@@ -71,26 +71,26 @@ La práctica integra el modelado de sistemas fisiológicos, la representación m
 
 ## Modelo físico y analogía eléctrica
 
-El modelo representa el estímulo fisiológico mediante una fuente de voltaje \(V_e(t)\). La resistencia \(R_1\) representa la oposición efectiva asociada al transporte hormonal. El capacitor \(C\), conectado entre el nodo de salida y la referencia, representa la capacidad de almacenamiento temporal de la señal. La rama formada por el inductor \(L\) y la resistencia \(R_2\), conectados en serie, representa la dinámica retardada y la oposición asociada con la respuesta, utilización o eliminación de la señal en el órgano diana.
+El modelo representa el estímulo fisiológico mediante una fuente de voltaje $V_e(t)$. La resistencia $R_1$ representa la oposición efectiva asociada al transporte hormonal. El capacitor $C$, conectado entre el nodo de salida y la referencia, representa la capacidad de almacenamiento temporal de la señal. La rama formada por el inductor $L$ y la resistencia $R_2$, conectados en serie, representa la dinámica retardada y la oposición asociada con la respuesta, utilización o eliminación de la señal en el órgano diana.
 
-La salida \(V_s(t)\) se mide en el nodo posterior a \(R_1\), común al capacitor y a la rama \(L-R_2\). El flujo de entrada se representa mediante \(F_e(t)\), mientras que el flujo de salida se representa mediante \(F_s(t)\). La analogía es fenomenológica: permite reproducir propiedades dinámicas como almacenamiento, disipación, retardo e inercia, sin establecer una equivalencia directa entre los valores eléctricos y parámetros hormonales medidos.
+La salida $V_s(t)$ se mide en el nodo posterior a $R_1$, común al capacitor y a la rama $L-R_2$. El flujo de entrada se representa mediante $F_e(t)$, mientras que el flujo de salida se representa mediante $F_s(t)$. La analogía es fenomenológica: permite reproducir propiedades dinámicas como almacenamiento, disipación, retardo e inercia, sin establecer una equivalencia directa entre los valores eléctricos y parámetros hormonales medidos.
 
 ### Diagrama biológico
 
 El diagrama relaciona el estímulo fisiológico, la glándula endócrina, el transporte hormonal, el almacenamiento y la respuesta del órgano diana con los elementos del circuito equivalente. También muestra la comparación entre la condición de control y la condición alterada.
 
-![Diagrama biológico del sistema endócrino](Sistema%20endocrino.png)
+![Diagrama BioRender de la Práctica 4: modelo del sistema endócrino en control y caso de hipertiroidismo](BIORENDER.jpeg)
 
 ### Parámetros utilizados
 
 | Componente | Control | Caso |
 |---|---:|---:|
-| \(R_1\) | 1 kΩ | 1 kΩ |
-| \(L\) | 100 mH | 100 mH |
-| \(C\) | 1 µF | 1000 µF |
-| \(R_2\) | 100 kΩ | 1 kΩ |
+| $R_1$ | 1 kΩ | 1 kΩ |
+| $L$ | 100 mH | 100 mH |
+| $C$ | 1 µF | 1000 µF |
+| $R_2$ | 100 kΩ | 1 kΩ |
 
-La condición control representa la referencia. En el caso se incrementa la capacitancia y se reduce \(R_2\), modificando la dinámica y el valor final de la respuesta.
+La condición control representa la referencia. En el caso se incrementa la capacitancia y se reduce $R_2$, modificando la dinámica y el valor final de la respuesta.
 
 ## Formulación matemática
 
@@ -98,46 +98,46 @@ La condición control representa la referencia. En el caso se incrementa la capa
 
 A partir de las leyes de Kirchhoff, las relaciones del circuito equivalente pueden expresarse como:
 
-\[
+$$
 V_e(t)=R_1F_e(t)+\frac{1}{C}\int [F_e(t)-F_s(t)]\,dt
-\]
+$$
 
-\[
+$$
 \frac{1}{C}\int [F_e(t)-F_s(t)]\,dt
 =L\frac{dF_s(t)}{dt}+R_2F_s(t)
-\]
+$$
 
 La salida se expresa mediante la rama inductiva-resistiva:
 
-\[
+$$
 V_s(t)=L\frac{dF_s(t)}{dt}+R_2F_s(t)
-\]
+$$
 
 ### 2. Función de transferencia
 
 Aplicando la transformada de Laplace con condiciones iniciales nulas, se obtiene:
 
-\[
+$$
 G(s)=\frac{V_s(s)}{V_e(s)}
 =\frac{Ls+R_2}
 {R_1LCs^2+(L+R_1R_2C)s+(R_1+R_2)}
-\]
+$$
 
-Para la condición control, utilizando \(R_1=1\,k\Omega\), \(L=0.1\,H\), \(C=1\,\mu F\) y \(R_2=100\,k\Omega\):
+Para la condición control, utilizando $R_1=1\,k\Omega$, $L=0.1\,H$, $C=1\,\mu F$ y $R_2=100\,k\Omega$:
 
-\[
+$$
 G_{\mathrm{control}}(s)=
 \frac{0.1s+100000}
 {0.0001s^2+100.1s+101000}
-\]
+$$
 
-Para la condición caso, utilizando \(R_1=1\,k\Omega\), \(L=0.1\,H\), \(C=1000\,\mu F\) y \(R_2=1\,k\Omega\):
+Para la condición caso, utilizando $R_1=1\,k\Omega$, $L=0.1\,H$, $C=1000\,\mu F$ y $R_2=1\,k\Omega$:
 
-\[
+$$
 G_{\mathrm{caso}}(s)=
 \frac{0.1s+1000}
 {0.1s^2+1000.1s+2000}
-\]
+$$
 
 Estas funciones corresponden a las expresiones implementadas en el programa de Python mediante `control.tf`.
 
@@ -145,17 +145,17 @@ Estas funciones corresponden a las expresiones implementadas en el programa de P
 
 ### 1. Error en estado estacionario
 
-Para una entrada escalón unitario, la ganancia en estado estacionario se obtiene evaluando la función de transferencia en \(s=0\):
+Para una entrada escalón unitario, la ganancia en estado estacionario se obtiene evaluando la función de transferencia en $s=0$:
 
-\[
+$$
 G(0)=\frac{R_2}{R_1+R_2}
-\]
+$$
 
 El error final respecto a la entrada unitaria es:
 
-\[
+$$
 e_{ss}=1-G(0)=\frac{R_1}{R_1+R_2}
-\]
+$$
 
 | Condición | Ganancia final | Error en estado estacionario |
 |---|---:|---:|
@@ -166,7 +166,7 @@ La diferencia entre los valores finales de las respuestas control y caso es apro
 
 ### 2. Polos y estabilidad
 
-Los polos se determinan mediante las raíces del denominador de cada función de transferencia. Para la condición control, el denominador es \(0.0001s^2+100.1s+101000\); para el caso, es \(0.1s^2+1000.1s+2000\). Los polos de ambos sistemas se encuentran en el semiplano izquierdo, por lo que las dos condiciones presentan estabilidad.
+Los polos se determinan mediante las raíces del denominador de cada función de transferencia. Para la condición control, el denominador es $0.0001s^2+100.1s+101000$; para el caso, es $0.1s^2+1000.1s+2000$. Los polos de ambos sistemas se encuentran en el semiplano izquierdo, por lo que las dos condiciones presentan estabilidad.
 
 ### 3. Interpretación de la respuesta temporal
 
@@ -176,11 +176,11 @@ La condición control alcanza un valor final cercano a 1 V, mientras que la cond
 
 La señal de entrada utilizada es un escalón unitario:
 
-\[
+$$
 V_e(t)=u(t)
-\]
+$$
 
-En Python se establece un intervalo de simulación de 0 a 10 segundos, con un paso de \(1\times10^{-3}\) s y 10001 muestras. En MATLAB/Simulink se utiliza un tiempo de simulación de 10 s, el solucionador `ode15s` y un paso máximo de `1e-3` s.
+En Python se establece un intervalo de simulación de 0 a 10 segundos, con un paso de $1\times10^{-3}$ s y 10001 muestras. En MATLAB/Simulink se utiliza un tiempo de simulación de 10 s, el solucionador `ode15s` y un paso máximo de `1e-3` s.
 
 ## Implementación en MATLAB, Simulink y Simscape
 
@@ -203,7 +203,6 @@ plotsignals(x.control,x.CE,x.FT,x.PID,x.Ve,'Caso')
 
 La evidencia de MATLAB/Simulink muestra las cuatro señales en el intervalo de 0 a 10 segundos. La respuesta del caso alcanza aproximadamente 0.5 V, mientras que la referencia y la respuesta tratada se mantienen próximas a 1 V.
 
-![Respuesta de control, caso y tratamiento PID en MATLAB](Control_Caso_Matlab4.jpg)
 
 ## Control en lazo cerrado y sintonización PID
 
@@ -211,9 +210,9 @@ La evidencia de MATLAB/Simulink muestra las cuatro señales en el intervalo de 0
 
 La respuesta del sistema en condición control se utiliza como referencia para el sistema en condición caso. El controlador PID actúa sobre la planta del caso para aproximar su respuesta a la referencia. El error de seguimiento se define como:
 
-\[
+$$
 e(t)=V_{s,\mathrm{control}}(t)-V_{s,\mathrm{caso}}(t)
-\]
+$$
 
 ### 2. Parámetros del controlador
 
@@ -221,26 +220,25 @@ La captura de PID Tuner muestra la configuración PIDF y los parámetros del blo
 
 | Parámetro | Valor mostrado |
 |---|---:|
-| \(P\) | 2.617 |
-| \(I\) | 10.49 |
-| \(D\) | -0.0459 |
-| \(N\) | 6.016 |
+| $P$ | 2.617 |
+| $I$ | 10.49 |
+| $D$ | -0.0459 |
+| $N$ | 6.016 |
 
 La gráfica de sintonización presenta la respuesta ajustada y la respuesta del bloque ante una referencia escalón. La respuesta ajustada muestra un sobreimpulso antes de aproximarse al valor de referencia.
 
-![Sintonización del controlador PID](PID%20controller.jpg)
 
 ### 3. Implementación del controlador en Python
 
 En el script de Python se utilizan las ganancias:
 
-\[
+$$
 k_P=13209.9564,\qquad
 k_I=32316525.9285,\qquad
 k_D=0.18118
-\]
+$$
 
-A partir de estas ganancias y de los componentes \(C_r\), \(R_e\), \(R_r\) y \(C_e\), se construye la función de transferencia del controlador. Posteriormente, se conecta en serie con la planta del caso y se obtiene el sistema en lazo cerrado mediante realimentación unitaria.
+A partir de estas ganancias y de los componentes $C_r$, $R_e$, $R_r$ y $C_e$, se construye la función de transferencia del controlador. Posteriormente, se conecta en serie con la planta del caso y se obtiene el sistema en lazo cerrado mediante realimentación unitaria.
 
 ## Reproducción en Python
 
@@ -266,7 +264,7 @@ u = np.ones(N)
 
 ### Obtención de las plantas
 
-La función `sis(C, R2, nombre)` utiliza \(R_1=1\,k\Omega\) y \(L=100\,mH\), y calcula los coeficientes del numerador y denominador para cada condición:
+La función `sis(C, R2, nombre)` utiliza $R_1=1\,k\Omega$ y $L=100\,mH$, y calcula los coeficientes del numerador y denominador para cada condición:
 
 ```python
 def sis(C, R2, nombre):
@@ -293,7 +291,6 @@ Se realizó la comparación experimental de las señales mediante el osciloscopi
 
 La señal experimental permite observar la diferencia entre la respuesta de referencia y la respuesta del caso, así como el comportamiento de la señal tratada. La medición complementa los resultados obtenidos mediante las simulaciones computacionales.
 
-![Captura de las señales medidas en el osciloscopio](Señal_Lab.jpeg)
 
 ## Resultados y verificación cruzada
 
@@ -302,7 +299,7 @@ Los resultados de las distintas representaciones permiten comparar las condicion
 | Representación | Evidencia | Resultado observado |
 |---|---|---|
 | Análisis matemático | Funciones de transferencia y cálculos | Ganancia final de aproximadamente 0.9901 para control y 0.5 para caso |
-| MATLAB/Simulink | `Control_Caso_Matlab4.jpg` | La respuesta control se mantiene próxima a 1 V y el caso se aproxima a 0.5 V |
+| MATLAB/Simulink | `Captura_Matlab.pdf` | La respuesta control se mantiene próxima a 1 V y el caso se aproxima a 0.5 V |
 | Python | `Control_caso_python4.pdf` | Se reproducen las respuestas de ambas plantas y el tratamiento PID |
 | PID Tuner | `PID controller.jpg` | Se muestra el ajuste del controlador y el seguimiento de referencia |
 | Laboratorio | `Señal_Lab.jpeg` | Se observan las señales medidas experimentalmente con el osciloscopio |
@@ -312,7 +309,7 @@ La comparación confirma que la condición caso presenta una respuesta final men
 ## Flujo de trabajo
 
 1. Interpretar la descripción fisiológica del sistema endócrino.
-2. Proponer el circuito eléctrico equivalente e identificar \(R_1\), \(C\), \(L\) y \(R_2\).
+2. Proponer el circuito eléctrico equivalente e identificar $R_1$, $C$, $L$ y $R_2$.
 3. Formular las ecuaciones integro-diferenciales mediante las leyes de Kirchhoff.
 4. Aplicar la transformada de Laplace y obtener las funciones de transferencia.
 5. Calcular el error en estado estacionario y analizar los polos de control y caso.
@@ -345,7 +342,7 @@ MSFP4/
 ├── sistemap5.slx
 ├── Bautista23212181_4.mlx
 ├── Bautista23212181_4.py
-├── Control_Caso_Matlab4.jpg
+├── Captura_Matlab.pdf
 ├── Control_caso_python4.pdf
 ├── PID controller.jpg
 ├── Señal_Lab.jpeg
@@ -381,7 +378,7 @@ Los entregables documentados en el repositorio son:
 - Desarrollo matemático y funciones de transferencia.
 - Modelo de Simulink y cuaderno de MATLAB.
 - Código fuente de Python.
-- Gráficas de las respuestas de MATLAB/Simulink y Python.
+- Gráficas de las respuestas de MATLAB/Simulink y Python (`Captura_Matlab.pdf` y `Control_caso_python4.pdf`).
 - Captura de la sintonización PID.
 - Evidencia experimental obtenida con el osciloscopio.
 - Archivo `README.md` y archivo `CITATION.cff`.
